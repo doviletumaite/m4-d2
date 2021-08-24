@@ -1,6 +1,7 @@
-import {Navbar, Nav} from `react-bootstrap`
+import {Navbar, Nav} from 'react-bootstrap'
 const MineNavbar = () => {
-<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+return (
+  <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
   <Navbar.Brand href="#home">Home</Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
@@ -10,5 +11,6 @@ const MineNavbar = () => {
     </Nav>
   </Navbar.Collapse>
 </Navbar>
+)
 }
 export default MineNavbar

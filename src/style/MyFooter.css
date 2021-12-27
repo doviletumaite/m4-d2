@@ -1,3 +1,5 @@
 .main-footer{
-    bottom: 0px;
+    align-self: flex-end;
+    display: flex;
+    justify-content: center;
 }

@@ -1,9 +1,11 @@
 import React from "react"
-import styled from "styled-components"
+import { Container } from "react-bootstrap"
+import "../style/MyFooter.css"
+
 const MyFooter = () => {
 return (
 <div>
-    <FooterContainer className="main-footer">
+    <Container className="main-footer">
         <div className="footer-middle">
         <div className="container">
             <div className="row">
@@ -55,13 +57,9 @@ return (
             </div>
         </div>
     </div>
-    </FooterContainer>
+    </Container>
 </div>
 )
 }
 export default MyFooter
-const FooterContainer = styled.footer `
-.footer-middle {
-    background: var(--mainDark);
-}
-`
+

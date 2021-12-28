@@ -54,7 +54,7 @@ const Home = () => {
     <DropdownButton
       as={InputGroup.Prepend}
       variant="outline-secondary"
-      title="choose a catagory"
+      title="chose a catagory"
       id="input-group-dropdown-1"
     >
       <Dropdown.Item href="#">Scifi</Dropdown.Item>

@@ -60,7 +60,7 @@ const Home = () => {
     <DropdownButton
       as={InputGroup.Prepend}
       variant="outline-secondary"
-      title="chose a catagory"
+      title="choose a catagory"
       id="input-group-dropdown-1"
     >
       <Dropdown.Item onClick={(e)=>selectGenre(scifiArray)}>Scifi</Dropdown.Item>
@@ -85,9 +85,11 @@ const Home = () => {
                  
 
                   {selectedGenre ? selectedGenre[0].map(b=>
+                   <Row className="my-5">
              <Col xs={6} md={4} className="my-3">
                  <MyCard book={b}/>
                   </Col>
+                  </Row>
                  ) : (<></>)}      
                  
             {bookArray.map(b=>

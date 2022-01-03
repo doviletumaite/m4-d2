@@ -22,24 +22,30 @@ const Home = () => {
     const [horrorArray, setHorrorArray] = useState([])
     const [romanceArray, setRomanceArray] = useState([])
     const [searchResult, setSearchResult] = useState([])
+
     useEffect(() => {
     setScifiArray(scifi)
     setFantasyArray(fantasy)
     setHistoryArray(history)
     setHorrorArray(horror)
     setRomanceArray(romance)
-    console.log("array",scifiArray)
     }, [])
    
     const [query, setQuery] = useState("")
+     const [selectedGenre, setSelectedGenre] = useState([])
+    const selectGenre = (e) =>{
+      setSelectedGenre([e])
+      console.log("selected genre", selectedGenre)
+    }
     
     const handleQuery = (e) => {
         setQuery(e.target.value)
-        console.log("query", query)
-        const result = scifiArray.filter(b=>b.toLowerCase().includes(query.toLowerCase()) )
-        console.log("result", searchResult)
+        const result = selectedGenre[0].filter(b=>b.title.toLowerCase().includes(query.toLowerCase()) )
           setSearchResult(result)
     }
+    
+   
+
     return (
         <div>
             <MineNavbar/>
@@ -57,22 +63,33 @@ const Home = () => {
       title="chose a catagory"
       id="input-group-dropdown-1"
     >
-      <Dropdown.Item href="#">Scifi</Dropdown.Item>
-      <Dropdown.Item href="#">Fantasy</Dropdown.Item>
-      <Dropdown.Item href="#">History</Dropdown.Item>
-      <Dropdown.Item href="#">Horror</Dropdown.Item>
-      <Dropdown.Item href="#">Romance</Dropdown.Item>
+      <Dropdown.Item onClick={(e)=>selectGenre(scifiArray)}>Scifi</Dropdown.Item>
+      <Dropdown.Item onClick={(e)=>selectGenre(fantasyArray)}>Fantasy</Dropdown.Item>
+      <Dropdown.Item onClick={(e)=>selectGenre(historyArray)}>History</Dropdown.Item>
+      <Dropdown.Item onClick={(e)=>selectGenre(horrorArray)}>Horror</Dropdown.Item>
+      <Dropdown.Item onClick={(e)=>selectGenre(romanceArray)}>Romance</Dropdown.Item>
     </DropdownButton>
     <FormControl aria-describedby="basic-addon1" value={query} onChange={(e)=>handleQuery(e)}/>
   </InputGroup>
   </Container>
 </Jumbotron>
                 <Row className="my-5">
+
                 {searchResult ? searchResult.map(b=>
+                <Row className="my-5">
+             <Col xs={6} md={4} className="my-3">
+                 <MyCard book={b}/>
+                  </Col>
+                  </Row>
+                 ) : (<></>)}  
+                 
+
+                  {selectedGenre ? selectedGenre[0].map(b=>
              <Col xs={6} md={4} className="my-3">
                  <MyCard book={b}/>
                   </Col>
                  ) : (<></>)}      
+                 
             {bookArray.map(b=>
              <Col xs={6} md={4} className="my-3">
                  <MyCard book={b}/>
